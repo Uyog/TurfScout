@@ -72,7 +72,10 @@ class HomePage extends StatelessWidget{
 
       //AppBar
        appBar: AppBar(
-        title: const Text("TurfScout", style: TextStyle(color: Color(0xff97FB57), fontWeight: FontWeight.bold),),
+        title: const Text("TurfScout", 
+        style: TextStyle(
+          color: Color(0xff97FB57), 
+          fontWeight: FontWeight.bold),),
         actions: [
           IconButton(onPressed: (){
              Navigator.push(
@@ -140,19 +143,16 @@ class HomePage extends StatelessWidget{
         ),
       );
     },
-    child:  const SizedBox( width: double.infinity, height: double.infinity,
+    child:   SizedBox( width: double.infinity, height: double.infinity,
       child: Card(
-        color: Color(0xff121212),
+        color: const Color(0xff121212),
         elevation: 4,
-        child: Padding(padding:  EdgeInsets.all(16),
+        child: Padding(padding:  const EdgeInsets.all(16),
           child: Stack(
           children: [
      Positioned(
       child: Center(
-        child: Text(
-          'Football',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold,color: Color(0xff97FB57),),),
+        child:Image.asset('assets/images/pngegg (1).png' ,color:const Color(0xff97FB57),)
       ),
     ),
   ],),
@@ -171,22 +171,19 @@ class HomePage extends StatelessWidget{
         MaterialPageRoute<void>(
           builder: (BuildContext context) => const BasketballPage(),
         ),);},
-    child:  const SizedBox( 
+    child:   SizedBox( 
       width: double.infinity, 
       height: double.infinity,
       child:  Card(
-        color: Color(0xff121212),
+        color:const Color(0xff121212),
         elevation: 4,
         child: Padding(
-          padding:  EdgeInsets.all(16),
+          padding:  const EdgeInsets.all(16),
           child:  Stack(
           children: [
      Positioned(
       child: Center(
-        child: Text(
-          'Basketball',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold,color: Color(0xff97FB57),),),
+        child: Image.asset('assets/images/pngegg (2).png' ,color:const Color(0xff97FB57),)
       ),
     ),
   ],),
@@ -205,22 +202,19 @@ class HomePage extends StatelessWidget{
         MaterialPageRoute<void>(
           builder: (BuildContext context) => const TennisPage(),
         ),);},
-    child:  const SizedBox(
+    child:   SizedBox(
       width: double.infinity, 
       height: double.infinity,
       child:  Card(
-        color: Color(0xff121212),
+        color: const Color(0xff121212),
         elevation: 4,
         child: Padding(
-          padding:  EdgeInsets.all(16),
+          padding:  const EdgeInsets.all(16),
           child:  Stack(
           children: [
      Positioned(
       child: Center(
-        child: Text(
-          'Tennis',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold,color: Color(0xff97FB57),),),
+        child:Image.asset('assets/images/pngegg (4).png' ,color:const Color(0xff97FB57),),
       ),
     ),
   ],),

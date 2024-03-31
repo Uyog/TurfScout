@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "520428515639",
+    "project_id": "turfscout-ebf77",
+    "storage_bucket": "turfscout-ebf77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520428515639:android:9893f014bdc9963e17aab2",
+        "android_client_info": {
+          "package_name": "com.example.turf_scout"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBl9odrKenZQsRWaW97eYtONCJCgineqKk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
