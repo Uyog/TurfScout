@@ -1,3 +1,4 @@
+import 'package:turf_scout/auth/auth.dart';
 import 'package:turf_scout/main.dart';
 import 'package:turf_scout/screens/login.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class SplashScreen extends StatelessWidget {
       home: AnimatedSplashScreen(
         splash: Expanded(child: Image.asset('assets/images/4iwSpd-LogoMakr.png', width: 10000, height: 10000,)),
         
-        nextScreen: const Login(),
+        nextScreen: const Authorization(),
         splashTransition: SplashTransition.fadeTransition,
         backgroundColor:const  Color(0xff121212),
         duration: 800,
