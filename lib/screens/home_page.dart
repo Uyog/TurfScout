@@ -12,14 +12,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xff121212),
+        backgroundColor: Theme.of(context).colorScheme.background,
 
         //AppBar
         appBar: AppBar(
-          title: const Text(
+          title: Text(
             "TurfScout",
             style: TextStyle(
-                color: Color(0xff97FB57), fontWeight: FontWeight.bold),
+                color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold),
           ),
           actions: [
             IconButton(
@@ -27,14 +27,14 @@ class HomePage extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute<void>(
-                        builder: (BuildContext context) => const AccountPage(),
+                        builder: (BuildContext context) =>  AccountPage(),
                       ));
                 },
                 icon: const Icon(Icons.account_circle_outlined))
           ],
           centerTitle: true,
-          backgroundColor: const Color(0xff121212),
-          iconTheme: const IconThemeData(color: Color(0xff97FB57)),
+          backgroundColor:Theme.of(context).colorScheme.background,
+          iconTheme:  IconThemeData(color: Theme.of(context).colorScheme.primary),
         ),
         drawer: const MyDrawer(),
 
@@ -75,13 +75,13 @@ class HomePage extends StatelessWidget {
                 ),
 
                 //Categories
-                const Text(
+                 Text(
                   "Categories",
                   textAlign: TextAlign.end,
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xff909090)),
+                      color: Theme.of(context).colorScheme.primary,),
                 ),
 
                 //Space
@@ -98,107 +98,101 @@ class HomePage extends StatelessWidget {
                     enableInfiniteScroll: true,
                   ),
                   items: [
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute<void>(
-                              builder: (BuildContext context) =>
-                                  const FootballPage(),
-                            ),
-                          );
-                        },
-                        child: SizedBox(
-                          width: double.infinity,
-                          height: double.infinity,
-                          child: Card(
-                            color: const Color(0xff121212),
-                            elevation: 4,
-                            child: Padding(
-                              padding: const EdgeInsets.all(16),
-                              child: Stack(
-                                children: [
-                                  Positioned(
-                                    child: Center(
-                                        child: Image.asset(
-                                      'assets/images/pngegg (1).png',
-                                      color: const Color(0xff97FB57),
-                                    )),
-                                  ),
-                                ],
-                              ),
-                            ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (BuildContext context) =>
+                                const FootballPage(),
                           ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute<void>(
-                              builder: (BuildContext context) =>
-                                  const BasketballPage(),
-                            ),
-                          );
-                        },
-                        child: SizedBox(
-                          width: double.infinity,
-                          height: double.infinity,
-                          child: Card(
-                            color: const Color(0xff121212),
-                            elevation: 4,
-                            child: Padding(
-                              padding: const EdgeInsets.all(16),
-                              child: Stack(
-                                children: [
-                                  Positioned(
-                                    child: Center(
-                                        child: Image.asset(
-                                      'assets/images/pngegg (2).png',
-                                      color: const Color(0xff97FB57),
-                                    )),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute<void>(
-                              builder: (BuildContext context) =>
-                                  const TennisPage(),
-                            ),
-                          );
-                        },
-                        child: SizedBox(
-                          width: double.infinity,
-                          height: double.infinity,
-                          child: Card(
-                            color: const Color(0xff121212),
-                            elevation: 4,
-                            child: Padding(
-                              padding: const EdgeInsets.all(16),
-                              child: Stack(
-                                children: [
-                                  Positioned(
-                                    child: Center(
+                        );
+                      },
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: double.infinity,
+                        child: Card(
+                          color:Theme.of(context).colorScheme.background,
+                          elevation: 4,
+                          child: Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  child: Center(
                                       child: Image.asset(
-                                        'assets/images/pngegg (4).png',
-                                        color: const Color(0xff97FB57),
-                                      ),
+                                    'assets/images/pngegg (1).png',
+                                    color: Theme.of(context).colorScheme.primary,
+                                  )),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (BuildContext context) =>
+                                const BasketballPage(),
+                          ),
+                        );
+                      },
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: double.infinity,
+                        child: Card(
+                          color: Theme.of(context).colorScheme.background,
+                          elevation: 4,
+                          child: Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  child: Center(
+                                      child: Image.asset(
+                                    'assets/images/pngegg (2).png',
+                                    color: Theme.of(context).colorScheme.primary,
+                                  )),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (BuildContext context) =>
+                                const TennisPage(),
+                          ),
+                        );
+                      },
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: double.infinity,
+                        child: Card(
+                          color: Theme.of(context).colorScheme.background,
+                          elevation: 4,
+                          child: Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  child: Center(
+                                    child: Image.asset(
+                                      'assets/images/pngegg (4).png',
+                                      color: Theme.of(context).colorScheme.primary,
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ),

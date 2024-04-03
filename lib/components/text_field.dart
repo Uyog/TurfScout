@@ -19,17 +19,20 @@ class MyTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextField( 
       obscureText: obscureText,
       controller: controller,
       decoration: InputDecoration(
         icon: prefixIcon,
-        border: OutlineInputBorder(
+        border: OutlineInputBorder( 
           borderRadius: BorderRadius.circular(10),
         ),
         hintText: hintText,
-        labelText: labeltext
+        labelText: labeltext,
+        iconColor: Theme.of(context).colorScheme.primary,
+        
       ),
+      
     );
   }
 }

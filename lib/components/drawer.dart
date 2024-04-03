@@ -1,9 +1,6 @@
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:turf_scout/screens/account_page.dart';
-import 'package:turf_scout/screens/events_calendar.dart';
-import 'package:turf_scout/screens/settings.dart';
-import 'package:turf_scout/screens/shop.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -15,83 +12,100 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      shadowColor: const Color(0xff97FB57),
-      backgroundColor: const Color(0xff121212),
-      child: ListView(
-        children: [
+      backgroundColor: Theme.of(context).colorScheme.background,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [ 
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ListTile(
-                leading: const Icon(Icons.account_circle_outlined),
-                title: const Text(
-                  "Account",
-                  style: TextStyle(color: Color(0xff97FB57)),
+              DrawerHeader(
+                child: Icon(Icons.home,
+                color: Theme.of(context).colorScheme.primary,)
                 ),
-                iconColor: const Color(0xff97FB57),
-                onTap: () => {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => const AccountPage(),
-                      ))
-                },
+              
+                
+              Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: ListTile(
+                  leading: const Icon(Icons.account_circle_outlined),
+                  title:  Text(
+                    "Account",
+                    style: TextStyle(color: Theme.of(context).colorScheme.primary,),
+                  ),
+                  iconColor: Theme.of(context).colorScheme.primary,
+                  onTap: ()  {
+                Navigator.pop(context);
+
+                Navigator.pushNamed(context, '/account_page');
+                  },
+                ),
               ),
-              ListTile(
-                leading: const Icon(Icons.calendar_month_sharp),
-                title: const Text(
-                  "Events Calendar",
-                  style: TextStyle(color: Color(0xff97FB57)),
+              
+              Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: ListTile(
+                  leading: const Icon(Icons.calendar_month_sharp),
+                  title:  Text(
+                    "Events Calendar",
+                    style: TextStyle(color:Theme.of(context).colorScheme.primary,),
+                  ),
+                  iconColor: Theme.of(context).colorScheme.primary,
+                  onTap: () {
+                  Navigator.pop(context);
+
+                    Navigator.pushNamed(context, '/events_calendar');
+                  },
                 ),
-                iconColor: const Color(0xff97FB57),
-                onTap: () => {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => const EventsCalendar(),
-                      ))
-                },
               ),
-              ListTile(
-                leading: const Icon(Icons.shopping_cart_outlined),
-                title: const Text(
-                  "Shop",
-                  style: TextStyle(color: Color(0xff97FB57)),
+              
+              
+              Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: ListTile(
+                  leading: const Icon(Icons.shopping_cart_outlined),
+                  title:  Text(
+                    "Shop",
+                    style: TextStyle(color:Theme.of(context).colorScheme.primary,),
+                  ),
+                  iconColor: Theme.of(context).colorScheme.primary,
+                  onTap: ()  {
+                   Navigator.pop(context);
+
+                    Navigator.pushNamed(context, '/shop');
+                  },
                 ),
-                iconColor: const Color(0xff97FB57),
-                onTap: () => {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => const ShopPage(),
-                      ))
-                },
               ),
-              ListTile(
-                leading: const Icon(Icons.settings),
-                title: const Text(
-                  "Settings",
-                  style: TextStyle(color: Color(0xff97FB57)),
+              
+              Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: ListTile(
+                  leading: const Icon(Icons.settings),
+                  title:  Text(
+                    "Settings",
+                    style: TextStyle(color: Theme.of(context).colorScheme.primary,),
+                  ),
+                  iconColor: Theme.of(context).colorScheme.primary,
+                  onTap: () {
+                    Navigator.pop(context);
+
+                     Navigator.pushNamed(context, '/settings');
+                  }
                 ),
-                iconColor: const Color(0xff97FB57),
-                onTap: () => {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => const SettingsPage(),
-                      ))
-                },
               ),
             ],
           ),
-          ListTile(
-            leading: const Icon(Icons.logout),
-            title: const Text(
-              "Log Out",
-              style: TextStyle(color: Color(0xff97FB57)),
+
+          Padding(
+            padding: const EdgeInsets.only(left: 25.0, bottom: 25.0),
+            child: ListTile(
+              leading: const Icon(Icons.logout),
+              title:  Text(
+                "Log Out",
+                style: TextStyle(color: Theme.of(context).colorScheme.primary,),
+              ),
+              iconColor: Theme.of(context).colorScheme.primary,
+              onTap: logout,
             ),
-            iconColor: const Color(0xff97FB57),
-            onTap: logout,
           ),
         ],
       ),

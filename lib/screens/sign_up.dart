@@ -1,11 +1,12 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:turf_scout/components/button.dart';
 import 'package:turf_scout/components/text_field.dart';
 import 'package:turf_scout/helper/helper_functions.dart';
-import 'package:turf_scout/screens/home_page.dart';
-import 'package:turf_scout/screens/login.dart';
+
 
 class SignUp extends StatefulWidget {
   final void Function()? onTap;
@@ -18,13 +19,13 @@ class SignUp extends StatefulWidget {
 }
 class _SignUpState extends State<SignUp> {
 
-  final TextEditingController usernamecontroller = TextEditingController();
+final TextEditingController usernamecontroller = TextEditingController();
 final TextEditingController emailcontroller = TextEditingController();
 final TextEditingController passwordcontroller = TextEditingController();
 final TextEditingController confirmPWcontroller = TextEditingController();
 
 
-  void signup() async {
+void signup() async {
     showDialog(
     context: context, 
     builder: (context) => const Center(
@@ -34,14 +35,19 @@ final TextEditingController confirmPWcontroller = TextEditingController();
     if (passwordcontroller.text != confirmPWcontroller.text) {
       Navigator.pop(context);
       displayMessageToUser("Wrong Password", context);
-    } else{
+    } 
+    else{
+
       try {
-        UserCredential? userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailcontroller.text, password: passwordcontroller.text);
+        UserCredential? userCredential = 
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailcontroller.text, 
+          password: passwordcontroller.text
+          );
 
-         
+          createUserDocument(userCredential);
 
-          if(context.mounted) Navigator.pop(context);
+      if (context.mounted) Navigator.pop(context);
       } on FirebaseAuthException catch (e) {
         Navigator.pop(context);
 
@@ -50,12 +56,25 @@ final TextEditingController confirmPWcontroller = TextEditingController();
     }
   }
 
+  Future<void> createUserDocument(UserCredential? userCredential) async {
+    if(userCredential != null && userCredential.user != null)
+    {
+      await FirebaseFirestore.instance
+      .collection("Users")
+      .doc(userCredential.user!.email)
+      .set({
+        'email': userCredential.user!.email,
+        'username': usernamecontroller.text,
+      });
+    }
+  }
+
 
 
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: const Color(0xffFFFFFF),
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Center(
         child: SingleChildScrollView( 
           scrollDirection: Axis.vertical,
@@ -70,7 +89,12 @@ final TextEditingController confirmPWcontroller = TextEditingController();
             child: Center(       
               child: Column(
                 children: [ 
-                  const Text("Sign Up ",  textAlign: TextAlign.center, style: TextStyle(fontSize: 35, fontWeight: FontWeight.w600, color: Color(0xff000000)),),
+                   Text("Sign Up ",  
+                  textAlign: TextAlign.center, 
+                  style: TextStyle(
+                    fontSize: 35, 
+                    fontWeight: FontWeight.w600, 
+                    color: Theme.of(context).colorScheme.primary,),),
           
                   const SizedBox(height: 20,),
           
@@ -111,19 +135,21 @@ final TextEditingController confirmPWcontroller = TextEditingController();
                   const SizedBox(height: 20,),
               
               MyButton(text: 'Proceed', onTap: signup),
+
+              const SizedBox(height: 20,),
           
              
              Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Text('Already have an account?', style: TextStyle(color: Color(0xff97FB57),),),
+                               Text('Already have an account?', style: TextStyle(color: Theme.of(context).colorScheme.primary,),),
                               const SizedBox(width: 10,),
                                GestureDetector( 
                                 onTap: widget.onTap,
           
-                                child: const Text('Login', 
+                                child: Text('Login', 
                                 style: TextStyle(
-                                  color: Color(0xff97FB57), 
+                                  color: Theme.of(context).colorScheme.primary,
                                   fontWeight: FontWeight.bold),))
                             ],
                           ),
