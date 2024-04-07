@@ -23,6 +23,14 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
 
+  bool _isHidden = true;
+
+void _togglePasswordView(){
+      setState(() {
+        _isHidden = !_isHidden;
+        });
+      }
+
 final TextEditingController emailcontroller = TextEditingController();
 final TextEditingController passwordcontroller = TextEditingController();
 
@@ -73,23 +81,35 @@ on FirebaseAuthException catch (e) {
                       color: Theme.of(context).colorScheme.primary,),),
           
                      const SizedBox(height: 20,),
+                     
           
                     MyTextField(
                       hintText: "Email", 
                       labeltext: 'Email', 
                       obscureText: false, 
                       controller: emailcontroller, 
-                      prefixIcon: const Icon(Icons.email)),
+                      prefixIcon: const Icon(Icons.email),
+                      suffixIcon: null
+                      
+                      ),
+                      
 
                         const SizedBox(height: 20,),
 
                         MyTextField(
                           hintText: 'Password', 
                           labeltext: "Password", 
-                          obscureText: true, 
+                          obscureText: _isHidden, 
                           controller: passwordcontroller, 
-                          prefixIcon: const Icon(Icons.password)),
-
+                          prefixIcon: const Icon(Icons.password),
+                          suffixIcon: InkWell( 
+                            onTap: _togglePasswordView,
+                            child: Icon(
+                              _isHidden
+                              ? Icons.visibility
+                              : Icons.visibility_off)
+                          ),),
+                          
                            const SizedBox(height: 20,),
           
                MyButton(text: "Login", onTap: login ),
@@ -145,7 +165,7 @@ on FirebaseAuthException catch (e) {
           ),
         ),
       ),
-      
     );
   }
+
 }

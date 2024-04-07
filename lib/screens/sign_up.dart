@@ -24,6 +24,13 @@ final TextEditingController emailcontroller = TextEditingController();
 final TextEditingController passwordcontroller = TextEditingController();
 final TextEditingController confirmPWcontroller = TextEditingController();
 
+bool _isHidden = true;
+void _togglePasswordView(){
+      setState(() {
+        _isHidden = !_isHidden;
+        });
+      }
+
 
 void signup() async {
     showDialog(
@@ -103,7 +110,8 @@ void signup() async {
                     labeltext: 'Username', 
                     obscureText: false, 
                     controller: usernamecontroller, 
-                    prefixIcon: const Icon(Icons.person_2_outlined)),
+                    prefixIcon: const Icon(Icons.person_2_outlined),
+                    suffixIcon: null),
           
                     const SizedBox(height: 20,),
           
@@ -112,25 +120,40 @@ void signup() async {
                       labeltext: "Email", 
                       obscureText: false, 
                       controller: emailcontroller, 
-                      prefixIcon: const Icon(Icons.email_outlined)),
+                      prefixIcon: const Icon(Icons.email_outlined),
+                      suffixIcon: null),
           
                      const SizedBox(height: 20,),   
           
                      MyTextField(
                       hintText: 'Password', 
                       labeltext: "Password", 
-                      obscureText: true, 
+                      obscureText: _isHidden, 
                       controller: passwordcontroller, 
-                      prefixIcon: const Icon(Icons.password)) ,     
+                      prefixIcon: const Icon(Icons.password),
+                      suffixIcon: InkWell( 
+                            onTap: _togglePasswordView,
+                            child: Icon(
+                              _isHidden
+                              ? Icons.visibility
+                              : Icons.visibility_off)
+                          ),) ,     
               
                 const SizedBox(height: 20),
           
                 MyTextField(
                   hintText: 'Confirm Password', 
                   labeltext: 'Confirm Password', 
-                  obscureText: true, 
+                  obscureText: _isHidden, 
                   controller: confirmPWcontroller, 
-                  prefixIcon: const Icon(Icons.password)),
+                  prefixIcon: const Icon(Icons.password),
+                  suffixIcon: InkWell( 
+                            onTap: _togglePasswordView,
+                            child: Icon(
+                              _isHidden
+                              ? Icons.visibility
+                              : Icons.visibility_off)
+                          ),),
           
                   const SizedBox(height: 20,),
               

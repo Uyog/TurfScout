@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
           backgroundColor:Theme.of(context).colorScheme.background,
           iconTheme:  IconThemeData(color: Theme.of(context).colorScheme.primary),
         ),
-        drawer: const MyDrawer(),
+        drawer: MyDrawer(),
 
         //body of the application
         body: Padding(
@@ -76,7 +76,7 @@ class HomePage extends StatelessWidget {
 
                 //Categories
                  Text(
-                  "Categories",
+                  "Shop",
                   textAlign: TextAlign.end,
                   style: TextStyle(
                       fontSize: 20,
