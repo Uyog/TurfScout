@@ -44,6 +44,8 @@ dependencies:
   cloud_firestore: ^4.16.0
   show_hide_password: ^0.0.2
   provider: ^6.1.2
+  app_bar_with_search_switch: ^1.8.5
+  flutter_settings_screens: ^0.3.3-null-safety+2
 
 dev_dependencies:
   flutter_test:

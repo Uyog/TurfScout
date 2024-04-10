@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 
 class MyDrawer extends StatelessWidget {
   MyDrawer({super.key});
@@ -96,9 +96,9 @@ class MyDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 25.0),
                 child: ListTile(
-                  leading: const Icon(Icons.calendar_month_sharp),
+                  leading: const Icon(Icons.person_rounded),
                   title: Text(
-                    "Events Calendar",
+                    "Profile",
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
                     ),
@@ -107,28 +107,11 @@ class MyDrawer extends StatelessWidget {
                   onTap: () {
                     Navigator.pop(context);
 
-                    Navigator.pushNamed(context, '/events_calendar');
+                    Navigator.pushNamed(context, '/account_page');
                   },
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 25.0),
-                child: ListTile(
-                  leading: const Icon(Icons.shopping_cart_outlined),
-                  title: Text(
-                    "Shop",
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                  ),
-                  iconColor: Theme.of(context).colorScheme.primary,
-                  onTap: () {
-                    Navigator.pop(context);
 
-                    Navigator.pushNamed(context, '/shop');
-                  },
-                ),
-              ),
               Padding(
                 padding: const EdgeInsets.only(left: 25.0),
                 child: ListTile(
@@ -143,7 +126,7 @@ class MyDrawer extends StatelessWidget {
                     onTap: () {
                       Navigator.pop(context);
 
-                      Navigator.pushNamed(context, '/settings');
+                      Navigator.pushNamed(context, '/account_page');
                     }),
               ),
               Padding(

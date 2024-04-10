@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:turf_scout/screens/home_page.dart';
+import 'package:turf_scout/components/text_field.dart';
+
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -9,94 +11,76 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
+
+  final emailcontroller = TextEditingController();
+
+  @override
+  void dispose(){
+    emailcontroller.dispose();
+    super.dispose();
+  }
+
+  Future passwordReset()async{
+   try{
+     await FirebaseAuth.instance
+    .sendPasswordResetEmail(email: emailcontroller.text.trim());
+     showDialog(context: context, 
+    builder: (context){
+      return const AlertDialog(
+        content: Text('Password Rest Link Sent. Check Your Email') ,
+      );
+    });
+   } on FirebaseAuthException catch (e) {
+    print(e);
+    showDialog(context: context, 
+    builder: (context){
+      return AlertDialog(
+        content: Text(e.message.toString()) ,
+      );
+    });
+   }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: const Color(0xff264027),
-      body: Column( 
+     appBar: AppBar(
+          backgroundColor:Theme.of(context).colorScheme.background,
+          iconTheme:  IconThemeData(color: Theme.of(context).colorScheme.primary),
+          elevation: 0,
+        ),
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-          padding: const EdgeInsets.all(100),
-        child: Center(
-          child: Column(
-            children: [
-              const Text('Forgot Password?',textAlign: TextAlign.center, style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500, color: Color(0xffFFFFFF)),),
+         
+         const Padding(
+            padding:  EdgeInsets.all(25.0),
+            child:  Text("Enter your Email and we will send you a password reset link", 
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 20),),
+          ),
 
-              const SizedBox(height: 30,),
+            Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: MyTextField(
+                        hintText: "Email", 
+                        labeltext: 'Email', 
+                        obscureText: false, 
+                        controller: emailcontroller, 
+                        prefixIcon: const Icon(Icons.email),
+                        suffixIcon: null
+                        
+                        ),
+            ),
+            MaterialButton(onPressed: passwordReset,
+            color: Theme.of(context).colorScheme.primary,
+            child: Text("Reset Password", style: TextStyle(color: Theme.of(context).colorScheme.background),),
+            )
+        ],
+      ),
+        
 
-               const TextField(decoration: InputDecoration(
-                hintText: 'Email',
-                hintStyle: TextStyle(color: Color(0xffFFFFFF)),
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.email, color: Color(0xffFFFFFF),),
-                label: Text('Email')
-                ),
-                ),
-
-                const SizedBox(height: 20,),
-
-                RichText(
-                      text:  const TextSpan(                            
-                        children:  <TextSpan>[
-                         TextSpan(text: 'or',),
-                         ]
-                         )
-                         ),
-
-                         const SizedBox(height: 20,),
-
-                         const TextField(decoration: InputDecoration(
-                hintText: 'Phone Number',
-                hintStyle: TextStyle(color: Color(0xffFFFFFF)),
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.phone_android, color: Color(0xffFFFFFF),),
-                label: Text('Phone Number')
-                ),
-                ),
-
-                const SizedBox(height: 20,),
-
-                 RichText(
-                      text:  const TextSpan(                            
-                        children:  <TextSpan>[
-                         TextSpan(text: 'Enter code sent to your email/ phone',),
-                         ]
-                         )
-                         ),
-
-                const SizedBox(height: 20,),
-
-              const TextField(decoration: InputDecoration(
-                hintText: 'Enter code',
-                hintStyle: TextStyle(color: Color(0xffFFFFFF)),
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.code, color: Color(0xffFFFFFF),),
-                label: Text('code')
-                ),
-              ),
-
-               const SizedBox(height: 20,),
-
-                 ElevatedButton(onPressed: (){
-                    
-                    Navigator.pushReplacement(
-                      context, 
-                      MaterialPageRoute<void>(
-                      builder: (BuildContext context) => const HomePage(),
-                      ));
-                  }, 
-                  
-                  child: const Text("Proceed", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),),
-              
-
-
-
-        ],),
-        ),
-        )
-
-      ],),
     );
   }
 }

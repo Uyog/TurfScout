@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:turf_scout/components/drawer.dart';
 import 'package:turf_scout/screens/account_page.dart';
-import 'package:turf_scout/screens/basketball_page.dart';
-import 'package:turf_scout/screens/football_page.dart';
-import 'package:turf_scout/screens/tennis_page.dart';
+
+
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -76,10 +76,10 @@ class HomePage extends StatelessWidget {
 
                 //Categories
                  Text(
-                  "Shop",
+                  "Categories",
                   textAlign: TextAlign.end,
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 25,
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).colorScheme.primary,),
                 ),
@@ -98,102 +98,69 @@ class HomePage extends StatelessWidget {
                     enableInfiniteScroll: true,
                   ),
                   items: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute<void>(
-                            builder: (BuildContext context) =>
-                                const FootballPage(),
-                          ),
-                        );
-                      },
-                      child: SizedBox(
-                        width: double.infinity,
-                        height: double.infinity,
-                        child: Card(
-                          color:Theme.of(context).colorScheme.background,
-                          elevation: 4,
-                          child: Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: Stack(
-                              children: [
-                                Positioned(
-                                  child: Center(
-                                      child: Image.asset(
-                                    'assets/images/pngegg (1).png',
-                                    color: Theme.of(context).colorScheme.primary,
-                                  )),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute<void>(
-                            builder: (BuildContext context) =>
-                                const BasketballPage(),
-                          ),
-                        );
-                      },
-                      child: SizedBox(
-                        width: double.infinity,
-                        height: double.infinity,
-                        child: Card(
-                          color: Theme.of(context).colorScheme.background,
-                          elevation: 4,
-                          child: Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: Stack(
-                              children: [
-                                Positioned(
-                                  child: Center(
-                                      child: Image.asset(
-                                    'assets/images/pngegg (2).png',
-                                    color: Theme.of(context).colorScheme.primary,
-                                  )),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute<void>(
-                            builder: (BuildContext context) =>
-                                const TennisPage(),
-                          ),
-                        );
-                      },
-                      child: SizedBox(
-                        width: double.infinity,
-                        height: double.infinity,
-                        child: Card(
-                          color: Theme.of(context).colorScheme.background,
-                          elevation: 4,
-                          child: Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: Stack(
-                              children: [
-                                Positioned(
-                                  child: Center(
+                    SizedBox(
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: Card(
+                        color:Theme.of(context).colorScheme.background,
+                        elevation: 4,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                child: Center(
                                     child: Image.asset(
-                                      'assets/images/pngegg (4).png',
-                                      color: Theme.of(context).colorScheme.primary,
-                                    ),
+                                  'assets/images/pngegg (1).png',
+                                  color: Theme.of(context).colorScheme.primary,
+                                )),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: Card(
+                        color: Theme.of(context).colorScheme.background,
+                        elevation: 4,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                child: Center(
+                                    child: Image.asset(
+                                  'assets/images/pngegg (2).png',
+                                  color: Theme.of(context).colorScheme.primary,
+                                )),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: Card(
+                        color: Theme.of(context).colorScheme.background,
+                        elevation: 4,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                child: Center(
+                                  child: Image.asset(
+                                    'assets/images/pngegg (4).png',
+                                    color: Theme.of(context).colorScheme.primary,
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
