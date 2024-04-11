@@ -27,7 +27,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
      showDialog(context: context, 
     builder: (context){
       return const AlertDialog(
-        content: Text('Password Rest Link Sent. Check Your Email') ,
+        content: Text('Password Rest Link Sent. Check Your Email!') ,
       );
     });
    } on FirebaseAuthException catch (e) {

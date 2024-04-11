@@ -85,7 +85,7 @@ class AccountPage extends StatelessWidget {
                       return Column(
                         children: [
                           ListTile(
-                            leading: const Icon(Icons.dark_mode),
+                            leading: const Icon(Icons.lightbulb_rounded),
                             iconColor: Theme.of(context).colorScheme.primary,
                             title: Text(
                               "Theme",

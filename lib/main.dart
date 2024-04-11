@@ -7,7 +7,6 @@ import 'package:turf_scout/screens/account_page.dart';
 import 'package:turf_scout/screens/events_calendar.dart';
 import 'package:turf_scout/screens/home_page.dart';
 import 'package:turf_scout/screens/settings.dart';
-import 'package:turf_scout/screens/shop.dart';
 import 'package:turf_scout/theme/light_mode.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -32,11 +31,11 @@ class MyApp extends StatelessWidget {
           Consumer<UiProvider>(builder: (context, UiProvider notifier, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'FanBase',
+          title: 'TurfScout',
           home: const Authorization(),
 
           //By default theme settings, you can also set system
-          ////when your mobile theme is dark the app also become dark
+          //when your mobile theme is dark the app also become dark
           themeMode: notifier.isDark ? ThemeMode.dark : ThemeMode.light,
 
           //Our custom theme applied
@@ -45,7 +44,6 @@ class MyApp extends StatelessWidget {
           routes: {
             '/account_page': (context) => AccountPage(),
             '/events_calendar': (context) => const EventsCalendar(),
-            '/shop': (context) => const ShopPage(),
             '/settings': (context) => const SettingsPage(),
             '/login_sign_up': (context) => const LoginOrSignUp(),
             '/home': (context) => const HomePage(),

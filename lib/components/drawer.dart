@@ -101,6 +101,7 @@ class MyDrawer extends StatelessWidget {
                     "Profile",
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
+                      fontWeight: FontWeight.w500
                     ),
                   ),
                   iconColor: Theme.of(context).colorScheme.primary,
@@ -120,6 +121,7 @@ class MyDrawer extends StatelessWidget {
                       "Settings",
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.primary,
+                         fontWeight: FontWeight.w500
                       ),
                     ),
                     iconColor: Theme.of(context).colorScheme.primary,
@@ -137,6 +139,7 @@ class MyDrawer extends StatelessWidget {
                       "Home",
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.primary,
+                         fontWeight: FontWeight.w500
                       ),
                     ),
                     iconColor: Theme.of(context).colorScheme.primary,
@@ -154,6 +157,7 @@ class MyDrawer extends StatelessWidget {
                 "Log Out",
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
+                   fontWeight: FontWeight.w500
                 ),
               ),
               iconColor: Theme.of(context).colorScheme.primary,
